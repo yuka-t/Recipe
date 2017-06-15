@@ -1,0 +1,14 @@
+C:\GitRepo\myApplication\myApplication\bin\Debug\myApplication.exe.config
+C:\GitRepo\myApplication\myApplication\bin\Debug\myApplication.exe
+C:\GitRepo\myApplication\myApplication\bin\Debug\myApplication.pdb
+C:\GitRepo\myApplication\myApplication\obj\Debug\myApplication.csprojResolveAssemblyReference.cache
+C:\GitRepo\myApplication\myApplication\obj\Debug\MainWindow.g.cs
+C:\GitRepo\myApplication\myApplication\obj\Debug\App.g.cs
+C:\GitRepo\myApplication\myApplication\obj\Debug\myApplication_MarkupCompile.cache
+C:\GitRepo\myApplication\myApplication\obj\Debug\myApplication_MarkupCompile.lref
+C:\GitRepo\myApplication\myApplication\obj\Debug\MainWindow.baml
+C:\GitRepo\myApplication\myApplication\obj\Debug\myApplication.g.resources
+C:\GitRepo\myApplication\myApplication\obj\Debug\myApplication.Properties.Resources.resources
+C:\GitRepo\myApplication\myApplication\obj\Debug\myApplication.csproj.GenerateResource.Cache
+C:\GitRepo\myApplication\myApplication\obj\Debug\myApplication.exe
+C:\GitRepo\myApplication\myApplication\obj\Debug\myApplication.pdb
