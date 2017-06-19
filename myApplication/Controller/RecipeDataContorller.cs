@@ -63,16 +63,14 @@ namespace myApplication
             }
         }
 
-        public async Task SerializeJson()
+        public void SerializeJson()
         {
-            bool isSucceed =  await RecipeModelInstance.SerializeJsonAsync();
+           RecipeModelInstance.SerializeJsonAsync();
         }
 
-        public async Task DeserializeJson()
+        public void DeserializeJson()
         {
-            Debug.WriteLine("★★★Async.Controller.Start");
             RecipeModelInstance.DeserializeJsonAsync();
-            Debug.WriteLine("★★★Async.Controller.End");
         }
     }
 }

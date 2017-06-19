@@ -54,7 +54,9 @@ namespace myApplication
 
         public void UpdateData()
         {
-            //
+            //listData.Clear();
+            listData = this.RecipeModelInstnce.BaseUtilityList;
+            RecipeDataGrid.ItemsSource = listData;
         }
 
         private void RecipeDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)

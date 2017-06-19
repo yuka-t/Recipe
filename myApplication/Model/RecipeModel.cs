@@ -15,12 +15,10 @@ using System.Threading;
 
 namespace myApplication
 {
-    [DataContract]
     public class RecipeModel
     {
         public static RecipeModel RecipeModelInstance = null;
 
-        [DataMember]
         public ObservableCollection<BaseUtility> BaseUtilityList = new ObservableCollection<BaseUtility>();
         public RecipeDataObserver Observer;
 
@@ -73,11 +71,11 @@ namespace myApplication
             {
                 using (var fs = new FileStream("output.json", FileMode.Create))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(RecipeModel));
-                    //await Task.Run( () =>
-                    //{
-                        serializer.WriteObject(fs, RecipeModelInstance);
-                    //});
+                    var serializer = new DataContractJsonSerializer(typeof(ObservableCollection<BaseUtility>));
+                    await Task.Run(() =>
+                    {
+                        serializer.WriteObject(fs, BaseUtilityList);
+                    });
                 }
             }
             catch (Exception e)
@@ -91,19 +89,16 @@ namespace myApplication
 
         public async Task<bool> DeserializeJsonAsync()
         {
-            Debug.WriteLine("★★★Async.Start");
-
             bool isSucceed = true;
 
             try
             {
                 using (var fs = new FileStream("output.json", FileMode.Open))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(RecipeModel));
+                    var serializer = new DataContractJsonSerializer(typeof(ObservableCollection<BaseUtility>));
                     await Task.Run(() =>
                    {
-                       Debug.WriteLine("★★★Task.Run");
-                       RecipeModelInstance = (RecipeModel)serializer.ReadObject(fs);
+                       BaseUtilityList = (ObservableCollection<BaseUtility>)serializer.ReadObject(fs);
                        Thread.Sleep(5000);
                    });
                 }
@@ -114,7 +109,7 @@ namespace myApplication
                 isSucceed = false;
             }
 
-            Debug.WriteLine("★★★Async.End");
+            Observer.UpdateData();
             return isSucceed;
         }
     }

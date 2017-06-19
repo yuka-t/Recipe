@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Closed="Window_Closed" Loaded="Window_Loaded">
     
-    <Grid  x:Name="ForegroundGrid" Background="Red">
-        <Grid Visibility="Collapsed">
+    <Grid  x:Name="ForegroundGrid">
+        <Grid Visibility="Visible">
             <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1.5*"></ColumnDefinition>
