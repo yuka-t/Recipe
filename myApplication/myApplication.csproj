@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +59,8 @@
     <Compile Include="Model\BaseUtility.cs" />
     <Compile Include="Model\RecipeModel.cs" />
     <Compile Include="Model\RedEye.cs" />
+    <Compile Include="Controller\RecipeDataContorller.cs" />
+    <Compile Include="RecipeDataObserver.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

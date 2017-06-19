@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:myApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Grid.ColumnDefinitions>
+        Title="MainWindow" Height="350" Width="525" Closed="Window_Closed" Loaded="Window_Loaded">
+    
+    <Grid  x:Name="ForegroundGrid" Background="Red">
+        <Grid Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="1" Margin="10,10,10,10" AutoGenerateColumns="False" CanUserSortColumns="False" x:Name="RecipeDataGrid">
+        <StackPanel Grid.Column="1" Margin="10">
+            <Button x:Name="AddRowButton" Height="30" Width="50" Content="行追加" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,10,10,0" Click="AddRowButton_Click"/>
+        <DataGrid  Margin="10" AutoGenerateColumns="False" CanUserSortColumns="False" x:Name="RecipeDataGrid" HeadersVisibility="Column" CanUserAddRows="False" CellEditEnding="RecipeDataGrid_CellEditEnding">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Kind}" Header="Kind"></DataGridTextColumn>
-                <DataGridComboBoxColumn x:Name="DataGridComboBox" SelectedItemBinding="{Binding RecipeBase}" Header="Base"/>
+                <DataGridComboBoxColumn x:Name="DataGridComboBox" SelectedItemBinding="{Binding RecipeBase}" Header="Base" />
             </DataGrid.Columns>
         </DataGrid>
+        </StackPanel>
     </Grid>
+    </Grid>
+
 </Window>
