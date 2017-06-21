@@ -27,8 +27,4 @@ namespace myApplication
             RecipeBase = BaseEnum.None;
         }
     }
-
-
-
-
 }
