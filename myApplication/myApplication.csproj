@@ -56,10 +56,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\HTTPController.cs" />
+    <Compile Include="HTTP.xaml.cs">
+      <DependentUpon>HTTP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\BaseUtility.cs" />
     <Compile Include="Model\RecipeModel.cs" />
     <Compile Include="Controller\RecipeDataContorller.cs" />
     <Compile Include="RecipeDataObserver.cs" />
+    <Page Include="HTTP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,7 +96,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

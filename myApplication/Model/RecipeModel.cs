@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization.Json;
-using System.Runtime.Serialization;
-using System.Xml;
-using System.Collections;
-using System.Runtime.Serialization.Json;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
 
 namespace myApplication
 {
@@ -32,7 +24,6 @@ namespace myApplication
             {
                 RecipeModelInstance = new RecipeModel();
             }
-
 
             return RecipeModelInstance;
         }
@@ -99,7 +90,6 @@ namespace myApplication
                     await Task.Run(() =>
                    {
                        BaseUtilityList = (ObservableCollection<BaseUtility>)serializer.ReadObject(fs);
-                       Thread.Sleep(5000);
                    });
                 }
             }

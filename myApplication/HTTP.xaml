@@ -1,0 +1,20 @@
+﻿<Window x:Class="myApplication.HTTP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:myApplication"
+        xmlns:prop="clr-namespace:myApplication.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static prop:Resources.ConnectServer}" Height="200" Width="300" MaxHeight="200" MaxWidth="300" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <Label x:Name="HTTPLabel" Margin="0,20,0,10"/>
+            <TextBox x:Name="HTTPTextBox" Margin="10,5"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,10">
+                <Button x:Name="HTTPOKButton" Width="50" Height="20" Margin="10,0,0,0" Content="OK" IsDefault="True" Click="HTTPOKButton_Click"/>
+                <Button x:Name="HTTPCancelButton" Width="50" Height="20" Margin="10,0" Content="Cancel" Click="HTTPCancelButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

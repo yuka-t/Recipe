@@ -22,7 +22,7 @@ namespace myApplication.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace myApplication.Properties {
         ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("myApplication.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace myApplication.Properties {
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,36 @@ namespace myApplication.Properties {
         }
         
         /// <summary>
+        ///   行追加 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string AddRow {
+            get {
+                return ResourceManager.GetString("AddRow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   サーバに接続 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ConnectServer {
+            get {
+                return ResourceManager.GetString("ConnectServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   サーバから切断 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DisConnectServer {
+            get {
+                return ResourceManager.GetString("DisConnectServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   ベース に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string HeaderRecipeBase {
+        public static string HeaderRecipeBase {
             get {
                 return ResourceManager.GetString("HeaderRecipeBase", resourceCulture);
             }
@@ -72,7 +99,7 @@ namespace myApplication.Properties {
         /// <summary>
         ///   種類 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string HeaderRecipeKind {
+        public static string HeaderRecipeKind {
             get {
                 return ResourceManager.GetString("HeaderRecipeKind", resourceCulture);
             }
@@ -81,9 +108,28 @@ namespace myApplication.Properties {
         /// <summary>
         ///   名前 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string HeaderRecipeName {
+        public static string HeaderRecipeName {
             get {
                 return ResourceManager.GetString("HeaderRecipeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   サーバから切断しました。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MsgDisConnectServer {
+            get {
+                return ResourceManager.GetString("MsgDisConnectServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   サーバに接続を開始します。
+        ///接続先を入力してください。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MsgHTTPDialog {
+            get {
+                return ResourceManager.GetString("MsgHTTPDialog", resourceCulture);
             }
         }
     }

@@ -1,21 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.ComponentModel;
-using System.Collections;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace myApplication
 {
@@ -26,6 +12,11 @@ namespace myApplication
     {
         public RecipeModel RecipeModelInstnce = null;
         public RecipeDataContorller RecipeDataController;
+        public HTTPController HttpController;
+
+        // 状態が増えた場合はEnumもしくはStateパターンに
+        public bool isConnectingServer = false;
+
         ObservableCollection<BaseUtility> listData = new ObservableCollection<BaseUtility>();
 
 
@@ -34,6 +25,8 @@ namespace myApplication
             InitializeComponent();
 
             this.RecipeDataController = new RecipeDataContorller();
+            this.HttpController = new HTTPController();
+
             RecipeDataController.DeserializeJson();
 
             RecipeModelInstnce = RecipeModel.GetInstance();
@@ -43,8 +36,6 @@ namespace myApplication
 
             DataGridComboBox.ItemsSource = RecipeDataController.GetComboBoxSource();
             RecipeDataGrid.ItemsSource = listData;
-
-            Debug.WriteLine("★★★Main.End");
         }
 
         private void AddRowButton_Click(object sender, RoutedEventArgs e)
@@ -54,7 +45,6 @@ namespace myApplication
 
         public void UpdateData()
         {
-            //listData.Clear();
             listData = this.RecipeModelInstnce.BaseUtilityList;
             RecipeDataGrid.ItemsSource = listData;
         }
@@ -85,9 +75,50 @@ namespace myApplication
             RecipeDataController.SerializeJson();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void ConnectionServerButton_Click(object sender, RoutedEventArgs e)
         {
-            //RecipeDataController.DeserializeJson();
+            if (!isConnectingServer)
+            {
+                HTTP httpWindow = new HTTP();
+                httpWindow.ShowDialog();
+
+                if (httpWindow.isSelectOK)
+                {
+                    isConnectingServer = true;
+                    HttpController.AsyncConnectionServer(httpWindow.ConnectionAddress);
+
+                    // 別サーバに接続する場合はこちらのみ
+                    HttpController.StartsUpServer(httpWindow.ConnectionAddress);
+                }
+            }
+            else
+            {
+                // 切断処理
+                HttpController.DisConnectServer();
+                isConnectingServer = false;
+                LabelChange(ConnectionServerButton);
+                MessageBox.Show(Properties.Resources.MsgDisConnectServer, "", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+
+            LabelChange(ConnectionServerButton);
+        }
+
+        private void LabelChange(Button button)
+        {
+            if (isConnectingServer)
+            {
+                if (button == ConnectionServerButton)
+                {
+                    ConnectionServerButton.Content = Properties.Resources.DisConnectServer;
+                }
+            }
+            else
+            {
+                if (button == ConnectionServerButton)
+                {
+                    ConnectionServerButton.Content = Properties.Resources.ConnectServer;
+                }
+            }
         }
     }
 }
